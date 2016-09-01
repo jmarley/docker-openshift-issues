@@ -1,0 +1,7 @@
+= Docker and OpenShift Issues
+
+With the continual updating of docker without backwards compatibility has really
+put many systems in a quandary. This project is one example of a workaround
+specifically for openshift.
+
+== 
