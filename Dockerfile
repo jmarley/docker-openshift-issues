@@ -1,5 +1,5 @@
-#FROM ros:indigo-ros-base
-FROM jmarley:indigo-ros-base
+FROM ros:indigo-ros-base
+#FROM jmarley:indigo-ros-base
 
 # install ros packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \

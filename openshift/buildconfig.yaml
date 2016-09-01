@@ -1,0 +1,27 @@
+kind: BuildConfig
+apiVersion: v1
+metadata:
+  name: "docker-openshift-issues"
+spec:
+  triggers:
+    - github:
+        secret: TcxgDM22J2MX-WZ1q21b
+      type: GitHub
+    - generic:
+        secret: LB3xJCWtLtZIdHH2_dp3
+      type: Generic
+    - type: ConfigChange
+  postCommit: {}
+  resources: {}
+  source:
+    git:
+      uri: git@github.com:jmarley/docker-openshift-issues.git
+    type: Git
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: docker-openshift-issues:latest
