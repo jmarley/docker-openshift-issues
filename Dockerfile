@@ -10,6 +10,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 RUN echo "#!/bin/bash\n. /opt/ros/indigo/setup.bash && exec \$@" > /usr/local/bin/ros-env
 RUN chmod +x /usr/local/bin/ros-env
 
-COPY install /opt/ros/indigo/
-COPY docs /solar/docs
-RUN mkdir /configuration && cp /opt/ros/indigo/share/solar_examples/ExampleConfiguration.yaml /configuration
+#COPY install /opt/ros/indigo/
+#COPY docs /solar/docs
+#RUN mkdir /configuration && cp /opt/ros/indigo/share/solar_examples/ExampleConfiguration.yaml /configuration
