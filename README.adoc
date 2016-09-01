@@ -4,4 +4,12 @@ With the continual updating of docker without backwards compatibility has really
 put many systems in a quandary. This project is one example of a workaround
 specifically for openshift.
 
-== 
+==
+
+.added robot read in quay
+.added .docker/config.json with creds
+.updated BuildConfig.yaml
+
+==
+
+image:https://quay.io/repository/jmarley/docker-openshift-issues/status?token=63177300-1b6e-4d19-8cb9-70fa010ec833["Docker Repository on Quay", link="https://quay.io/repository/jmarley/docker-openshift-issues"]
