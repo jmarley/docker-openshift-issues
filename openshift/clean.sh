@@ -1,4 +1,5 @@
 #!/bin/bash
 
- oc delete pods,svc,dc,bc,is fdeco-solar
- oc create -f support/openshift/jmarley-base/Dockerfile
+ #oc delete pods,svc,dc,bc,is docker-openshift-issues
+ oc delete bc docker-openshift-issues
+ oc create -f openshift/Dockerfile
