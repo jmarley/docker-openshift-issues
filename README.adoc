@@ -24,7 +24,7 @@ $ sudo docker build -t jmarley/indigo-ros-core:docker1.8 .
 .indigo-ros-base
 [source,bash]
 ----
-
+$ sudo docker build -t jmarley/indig-ros-base:docker1.8 .
 ----
 
 == Working Environment
