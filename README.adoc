@@ -4,12 +4,31 @@ With the continual updating of docker without backwards compatibility has really
 put many systems in a quandary. This project is one example of a workaround
 specifically for openshift.
 
-==
+== Vagrant
 
-.added robot read in quay
-.added .docker/config.json with creds
-.updated BuildConfig.yaml
+. Start box
+[source,bash]
+----
+$ vagrant up
+----
 
-==
+. Change mode for authorized_keys
+[source,bash]
+----
+$ chmod 600 .ssh/authorized_keys
+----
+
+== Working Environment
+
+. added robot read in quay
+. added .docker/config.json with creds
+. updated BuildConfig.yaml
+. rebuild images in 1.8 docker engine
+
+== Status
 
 image:https://quay.io/repository/jmarley/docker-openshift-issues/status?token=63177300-1b6e-4d19-8cb9-70fa010ec833["Docker Repository on Quay", link="https://quay.io/repository/jmarley/docker-openshift-issues"]
+
+== References
+. https://github.com/osrf/docker_images/tree/e4ba7284358c569ebb7818b85e8520fbe9157269/ros/indigo[ROS source]
+. https://hub.docker.com/r/library/ros/[ROS on dockerhub]
