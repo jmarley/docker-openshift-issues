@@ -9,13 +9,14 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 
 # setup keys
-RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
+#RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
 
 # setup sources.list
 RUN echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list
 
 # install bootstrap tools
-RUN apt-get update && apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install --force-yes \
+    --no-install-recommends -y \
     python-rosdep \
     python-rosinstall \
     python-vcstools \
@@ -28,6 +29,7 @@ RUN rosdep init \
 # install ros packages
 ENV ROS_DISTRO indigo
 RUN apt-get update && apt-get install -y \
+    --force-yes \
     ros-indigo-ros-core=1.1.4-0* \
     && rm -rf /var/lib/apt/lists/*
 
