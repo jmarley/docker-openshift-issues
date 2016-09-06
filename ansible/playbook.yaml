@@ -1,0 +1,8 @@
+---
+- name: Configure Vagrant for docker 1.8.2
+tasks:
+  yum:
+    name: docker-1.8.2
+    exclude: name=docker-1.10*
+    exclude: name=docker-1.9*
+    state: present
