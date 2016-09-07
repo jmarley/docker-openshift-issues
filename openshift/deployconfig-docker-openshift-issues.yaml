@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: null
+  labels:
+    app: docker-openshift-issues
+  name: docker-openshift-issues
+spec:
+  replicas: 1
+  selector:
+    app: docker-openshift-issues
+    deploymentconfig: docker-openshift-issues
+  strategy:
+    resources: {}
+  template:
+    metadata:
+      annotations:
+        openshift.io/container.docker-openshift-issues.image.entrypoint: '["/ros_entrypoint.sh","bash"]'
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: docker-openshift-issues
+        deploymentconfig: docker-openshift-issues
+    spec:
+      containers:
+      - image: docker-openshift-issues:latest
+        name: docker-openshift-issues
+        resources: {}
+  test: false
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - docker-openshift-issues
+      from:
+        kind: ImageStreamTag
+        name: docker-openshift-issues:latest
+    type: ImageChange
+status: {}

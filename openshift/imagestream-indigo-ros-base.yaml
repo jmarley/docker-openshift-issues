@@ -1,0 +1,21 @@
+kind: ImageStream
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: null
+  labels:
+    app: docker-openshift-issues
+  name: indigo-ros-base
+spec:
+  tags:
+  - annotations:
+      openshift.io/imported-from: jmarley/indigo-ros-base:docker1.8
+    from:
+      kind: DockerImage
+      name: docker.io/jmarley/indigo-ros-base:docker1.8
+    generation: null
+    importPolicy: {}
+    name: docker1.8
+status:
+  dockerImageRepository: ""

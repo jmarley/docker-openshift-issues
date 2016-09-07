@@ -12,13 +12,13 @@ items:
   spec:
     tags:
     - annotations:
-        openshift.io/imported-from: jmarley/indigo-ros-base:latest
+        openshift.io/imported-from: jmarley/indigo-ros-base:docker1.8
       from:
         kind: DockerImage
-        name: quay.io/jmarley/indigo-ros-base:latest
+        name: quay.io/jmarley/indigo-ros-base:docker1.8
       generation: null
       importPolicy: {}
-      name: latest
+      name: docker1.8
   status:
     dockerImageRepository: ""
 - apiVersion: v1
@@ -59,7 +59,7 @@ items:
       dockerStrategy:
         from:
           kind: ImageStreamTag
-          name: indigo-ros-base:latest
+          name: indigo-ros-base:docker1.8
       type: Docker
     triggers:
     - github:
