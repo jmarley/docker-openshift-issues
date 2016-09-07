@@ -1,9 +1,11 @@
-FROM ros:indigo-ros-base
-#FROM jmarley:indigo-ros-base
+#FROM ros:indigo-ros-base
+FROM jmarley/indigo-ros-base:docker1.8
 
 # install ros packages
 RUN apt-get update && \
-    apt-get install -y ros-indigo-robot=1.1.4-0* ros-indigo-rosbridge-suite libyaml-cpp0.5 && \
+    apt-get install -y \
+    --force-yes \
+    ros-indigo-robot=1.1.4-0* ros-indigo-rosbridge-suite libyaml-cpp0.5 && \
     rm -rf /var/lib/apt/lists/*
 
 # Useful utility function
