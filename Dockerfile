@@ -11,6 +11,7 @@ RUN apt-get update && \
 # Useful utility function
 RUN echo "#!/bin/bash\n. /opt/ros/indigo/setup.bash && exec \$@" > /usr/local/bin/ros-env
 RUN chmod +x /usr/local/bin/ros-env
+RUN chmod 755 /ros_entrypoint.sh
 
 #COPY install /opt/ros/indigo/
 #COPY docs /solar/docs

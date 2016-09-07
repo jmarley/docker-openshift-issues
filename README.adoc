@@ -2,7 +2,7 @@
 
 With the continual updating of docker without backwards compatibility has really
 put many systems in a quandary. This project is one example of a workaround
-specifically for openshift.
+specifically for OpenShift.
 
 == Vagrant
 
@@ -13,18 +13,47 @@ $ vagrant up
 ----
 
 == Build Docker images via 1.8.2 engine
+SSH onto vagrant box
 
 .indigo-ros-core
 [source,bash]
 ----
 $ cd /vagrant/docker/indigo-ros-core
 $ sudo docker build -t jmarley/indigo-ros-core:docker1.8 .
+$ sudo docker push
 ----
 
 .indigo-ros-base
 [source,bash]
 ----
 $ sudo docker build -t jmarley/indig-ros-base:docker1.8 .
+----
+
+== OpenShift Setup
+
+.Create image streams
+[source,bash]
+----
+$ oc create -f openshift/imagestream-indigo-ros-base.yaml
+$ oc create -f openshift/imagestream-docker-openshift-issues.yaml
+----
+
+.Create Build configurations
+[source,bash]
+----
+$ oc create -f openshift/buildconfig-docker-openshift-issues.yaml
+----
+
+.Create Deploy configuraitons
+[source,bash]
+----
+$ oc create -f openshift/deployconfig-docker-openshift-issues.yaml
+----
+
+.Add Security Control Context
+[source,bash]
+----
+$ 
 ----
 
 == Working Environment
@@ -41,3 +70,4 @@ image:https://quay.io/repository/jmarley/docker-openshift-issues/status?token=63
 == References
 . https://github.com/osrf/docker_images/tree/e4ba7284358c569ebb7818b85e8520fbe9157269/ros/indigo[ROS source]
 . https://hub.docker.com/r/library/ros/[ROS on dockerhub]
+. https://access.redhat.com/solutions/2347521[Red Hat Article on downgrading Docker]
