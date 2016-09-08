@@ -3,6 +3,7 @@ kind: DeploymentConfig
 metadata:
   annotations:
     openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/scc: scc-ros
   creationTimestamp: null
   labels:
     app: docker-openshift-issues
@@ -28,6 +29,14 @@ spec:
       - image: docker-openshift-issues:latest
         name: docker-openshift-issues
         resources: {}
+        securityContext:
+          privileged: true
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: rossvcacct
+      serviceAccount: rossvcacct
+      securityContext: {}
   test: false
   triggers:
   - type: ConfigChange

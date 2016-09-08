@@ -31,6 +31,24 @@ $ sudo docker build -t jmarley/indig-ros-base:docker1.8 .
 
 == OpenShift Setup
 
+.Add Service Account
+[source,bash]
+----
+$ oc create -f openshift/serviceaccount.yaml
+----
+
+.Add Security Control Context
+[source,bash]
+----
+$ oc create -f openshift/scc_ros.yaml
+----
+
+.Update scc policy changes
+[source,bash]
+----
+$ oc adm policy add-scc-to-user scc-ros <user> -n <project>
+----
+
 .Create image streams
 [source,bash]
 ----
@@ -50,11 +68,7 @@ $ oc create -f openshift/buildconfig-docker-openshift-issues.yaml
 $ oc create -f openshift/deployconfig-docker-openshift-issues.yaml
 ----
 
-.Add Security Control Context
-[source,bash]
-----
-$ 
-----
+
 
 == Working Environment
 
@@ -71,3 +85,4 @@ image:https://quay.io/repository/jmarley/docker-openshift-issues/status?token=63
 . https://github.com/osrf/docker_images/tree/e4ba7284358c569ebb7818b85e8520fbe9157269/ros/indigo[ROS source]
 . https://hub.docker.com/r/library/ros/[ROS on dockerhub]
 . https://access.redhat.com/solutions/2347521[Red Hat Article on downgrading Docker]
+. https://access.redhat.com/solutions/2168181[Red Hat Article on setting elevated privileges]
